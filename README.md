@@ -1,5 +1,9 @@
 # Ruby On Railsのチュートリアルリポジトリ
 
+http://railstutorial.jp/
+
+[Michael Hartl](http://www.michaelhartl.com/)著
+
 ## LICENSE
 
 ```sh
