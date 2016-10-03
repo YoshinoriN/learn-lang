@@ -14,3 +14,11 @@ sudo apt-get install build-essential g++
 rake db:create:all
 rake db:migrate
 ```
+
+# Using Unicorn
+
+```sh
+bundle exec unicorn_rails -c config/unicorn.rb -E development
+
+To access http://example.com:3000
+```
