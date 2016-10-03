@@ -1,3 +1,7 @@
+# Rails チュートリアルの第2章の'toy_app'をMariaDBでやってみた版
+
+なにこれ環境構築ムズイ
+
 ```sh
 sudo apt-get upgrade
 sudo apt-get update
@@ -8,14 +12,14 @@ gem install libv8
 sudo apt-get install build-essential g++
 ```
 
-# Database Migration
+## Database Migration
 
 ```sh
 rake db:create:all
 rake db:migrate
 ```
 
-# Using Unicorn
+## Using Unicorn
 
 ```sh
 bundle exec unicorn_rails -c config/unicorn.rb -E development
