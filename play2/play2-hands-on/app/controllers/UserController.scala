@@ -13,6 +13,26 @@ import scala.concurrent.Future
 import slick.driver.H2Driver.api._
 
 /**
+  *  画面からの入力を受け取るForm
+  *  コントローラーでの処理に強く依存するため、理由がない場合はコントローラークラスのコンパニオンオブジェクト（クラスやトレイトと同じ名前で作成された同名のオブジェクトのこと）に定義するとよい
+  *  対応するクラスやトレイトは互いにprivateなメンバにアクセスできる。
+  *  共通で使用するメソッドを抽出するのに使ったりする。
+  */
+object UserController {
+  //フォームの値を格納するケースクラス
+  case class UserForm(id: Option[Long], name: String, companyId: Option[Int])
+
+  val userForm = Form(
+    mapping(
+      "id"        -> optional(longNumber),
+      "name"      -> nonEmptyText(maxLength = 20),
+      "companyId" -> optional(number)
+    )(UserForm.apply)(UserForm.unapply)
+  )
+}
+
+
+/**
   * DIのため、コンストラクタでInjectアノテーションと2クラスのインスタンスの取得を行う
   * また、インスタンスの取得だけでなく、トレイトをミックスインする（ざっくり書くと機能の一部を使用する）
   */
