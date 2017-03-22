@@ -11,6 +11,8 @@ import models.Tables._
 import javax.inject.Inject
 import scala.concurrent.Future
 import slick.driver.H2Driver.api._
+//コンパニオンオブジェクトのFormを参照するためにimportする
+import UserController._
 
 /**
   *  画面からの入力を受け取るForm
@@ -54,7 +56,26 @@ class UserController @Inject()(val dbConfigProvider: DatabaseConfigProvider,
   /**
     * 編集画面表示
     */
-  def edit(id: Option[Long]) = TODO
+  def edit(id: Option[Long]) = Action.async { implicit rs =>
+
+    //リクエストパラメータにIDが存在する場合
+    val form = if(id.isDefined) {
+      //IDからユーザー情報を1件取得
+      db.run(Users.filter(t => t.id === id.get.bind).result.head).map { user =>
+        //値をフォームに詰める
+        userForm.fill(UserForm(Some(user.id), user.name, user.companyId))
+      }
+    } else {
+      Future { userForm }
+    }
+
+    form.flatMap { form =>
+      //会社一覧を取得
+      db.run(Companies.sortBy(_.id).result).map { companies =>
+        Ok(views.html.user.edit(form, companies))
+      }
+    }
+  }
 
   /**
     * 登録
