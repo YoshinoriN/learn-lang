@@ -80,12 +80,50 @@ class UserController @Inject()(val dbConfigProvider: DatabaseConfigProvider,
   /**
     * 登録
     */
-  def create = TODO
+  def create = Action.async { implicit rs =>
+    //リクエスト内容をバインド
+    userForm.bindFromRequest.fold(
+      //エラーの場合登録場面に戻す
+      error => {
+        db.run(Companies.sortBy(t => t.id).result).map { companies =>
+          BadRequest(views.html.user.edit(error, companies))
+        }
+      },
+      //OK
+      form => {
+        //自動採番の場合はSlickは値を無視してインサートする
+        val user = UsersRow(0, form.name, form.companyId)
+        db.run(Users += user).map { _ =>
+          //一覧画面にリダイレクト
+          Redirect(routes.UserController.list)
+        }
+      }
+    )
+
+  }
 
   /**
     * 更新
     */
-  def update = TODO
+  def update = Action.async { implicit rs =>
+    //リクエスト内容をバインド
+    userForm.bindFromRequest.fold(
+      //エラーの場合登録場面に戻す
+      error => {
+        db.run(Companies.sortBy(t => t.id).result).map { companies =>
+          BadRequest(views.html.user.edit(error, companies))
+        }
+      },
+      //OKの場合、更新後に一覧画面にリダイレクト
+      form => {
+        val user = UsersRow(form.id.get, form.name, form.companyId)
+        db.run(Users.filter(t => t.id === user.id.bind).update(user)).map { _ =>
+          //一覧画面にリダイレクト
+          Redirect(routes.UserController.list)
+        }
+      }
+    )
+  }
 
   /**
     * 削除
