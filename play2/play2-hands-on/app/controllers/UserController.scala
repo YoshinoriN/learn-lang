@@ -128,6 +128,10 @@ class UserController @Inject()(val dbConfigProvider: DatabaseConfigProvider,
   /**
     * 削除
     */
-  def remove(id: Long) = TODO
-
+  def remove(id: Long) = Action.async { implicit rs =>
+    //ユーザーを削除
+    db.run(Users.filter(t => t.id === id.bind).delete).map { _ =>
+      Redirect(routes.UserController.list)
+    }
+  }
 }
