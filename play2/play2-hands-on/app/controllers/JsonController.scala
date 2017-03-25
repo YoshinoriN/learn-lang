@@ -14,7 +14,8 @@ import play.api.libs.json._
 import play.api.libs.functional.syntax._
 
 class JsonController @Inject()(val dbConfigProvider: DatabaseConfigProvider) extends Controller
-    with HasDatabaseConfigProvider[JdbcProfile] {
+  with HasDatabaseConfigProvider[JdbcProfile] {
+
   /**
     * 一覧表示
     */
