@@ -32,29 +32,30 @@ object JsonController {
     (__ \ "companyId").readNullable[Int]
     )(userForm))
   )
+
+  /* play2のJSONサポートによるDSLを使わない場合
+  implicit val usersRowWritesFormat = new Writes[UsersRow]{
+    def writes(user: UsersRow): JsValue = {
+      Json.obj(
+        "id"        -> user.id,
+        "name"      -> user.name,
+        "companyId" -> user.companyId
+      )
+    }
+  }
+
+  implicit val userFormFormat = new Reads[UserForm]{
+    def reads(js: JsValue): UserForm = {
+      UserForm(
+        id        = (js \ "id"       ).asOpt[Long],
+        name      = (js \ "name"     ).as[String],
+        companyId = (js \ "companyId").asOpt[Int]
+      )
+    }
+  }
+  */
 }
 
-/* play2のJSONサポートによるDSLを使わない場合
-implicit val usersRowWritesFormat = new Writes[UsersRow]{
-  def writes(user: UsersRow): JsValue = {
-    Json.obj(
-      "id"        -> user.id,
-      "name"      -> user.name,
-      "companyId" -> user.companyId
-    )
-  }
-}
-
-implicit val userFormFormat = new Reads[UserForm]{
-  def reads(js: JsValue): UserForm = {
-    UserForm(
-      id        = (js \ "id"       ).asOpt[Long],
-      name      = (js \ "name"     ).as[String],
-      companyId = (js \ "companyId").asOpt[Int]
-    )
-  }
-}
-*/
 
 class JsonController @Inject()(val dbConfigProvider: DatabaseConfigProvider) extends Controller
   with HasDatabaseConfigProvider[JdbcProfile] {
