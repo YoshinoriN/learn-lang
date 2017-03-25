@@ -15,12 +15,23 @@ import play.api.libs.functional.syntax._
 
 //play2のJSONサポートによるDSLでの記述
 object JsonController {
+
+  case class UserForm(id: Option[Long], name: String, companyId: Option[Int])
+
   // Scalaオブジェクト(UsersRow)をJSONに変換するにはWritesを定義
   implicit val usersRowWritesWrites = (
     (__ \ "id"       ).write[Long]   and
     (__ \ "name"     ).write[String] and
     (__ \ "companyId").writeNullable[Int]
     )(unlift(UsersRow.unapply))
+
+  //JSONをScalaオブジェクト(UserForm)に変換するためのReadsを定義する
+  implicit val userFormFormat = (
+    (__ \ "id"       ).readNullable[Long]   and
+    (__ \ "name"     ).read[String] and
+    (__ \ "companyId").readNullable[Int]
+    )(userForm))
+  )
 }
 
 /* play2のJSONサポートによるDSLを使わない場合
@@ -30,6 +41,16 @@ implicit val usersRowWritesFormat = new Writes[UsersRow]{
       "id"        -> user.id,
       "name"      -> user.name,
       "companyId" -> user.companyId
+    )
+  }
+}
+
+implicit val userFormFormat = new Reads[UserForm]{
+  def reads(js: JsValue): UserForm = {
+    UserForm(
+      id        = (js \ "id"       ).asOpt[Long],
+      name      = (js \ "name"     ).as[String],
+      companyId = (js \ "companyId").asOpt[Int]
     )
   }
 }
