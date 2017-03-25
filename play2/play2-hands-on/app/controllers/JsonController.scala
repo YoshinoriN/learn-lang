@@ -38,10 +38,18 @@ implicit val usersRowWritesFormat = new Writes[UsersRow]{
 class JsonController @Inject()(val dbConfigProvider: DatabaseConfigProvider) extends Controller
   with HasDatabaseConfigProvider[JdbcProfile] {
 
+  import JsonController._
+
   /**
     * 一覧表示
     */
-  def list = TODO
+  def list = Action.async { implicit rs =>
+    // IDの昇順にすべてのユーザ情報を取得
+    db.run(Users.sortBy(t => t.id).result).map { users =>
+      // ユーザの一覧をJSONで返す
+      Ok(Json.obj("users" -> users))
+    }
+  }
 
   /**
     * ユーザ登録
