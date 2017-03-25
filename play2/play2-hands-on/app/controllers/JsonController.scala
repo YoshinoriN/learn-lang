@@ -26,36 +26,34 @@ object JsonController {
     )(unlift(UsersRow.unapply))
 
   //JSONをScalaオブジェクト(UserForm)に変換するためのReadsを定義する
-  implicit val userFormFormat = (
-    (__ \ "id"       ).readNullable[Long]   and
-    (__ \ "name"     ).read[String] and
+  implicit val userFormReads = (
+    (__ \ "id"       ).readNullable[Long] and
+    (__ \ "name"     ).read[String]       and
     (__ \ "companyId").readNullable[Int]
-    )(userForm))
-  )
+    )(UserForm)
 
   /* play2のJSONサポートによるDSLを使わない場合
-  implicit val usersRowWritesFormat = new Writes[UsersRow]{
-    def writes(user: UsersRow): JsValue = {
-      Json.obj(
-        "id"        -> user.id,
-        "name"      -> user.name,
-        "companyId" -> user.companyId
-      )
-    }
+implicit val usersRowWritesFormat = new Writes[UsersRow]{
+  def writes(user: UsersRow): JsValue = {
+    Json.obj(
+      "id"        -> user.id,
+      "name"      -> user.name,
+      "companyId" -> user.companyId
+    )
   }
-
-  implicit val userFormFormat = new Reads[UserForm]{
-    def reads(js: JsValue): UserForm = {
-      UserForm(
-        id        = (js \ "id"       ).asOpt[Long],
-        name      = (js \ "name"     ).as[String],
-        companyId = (js \ "companyId").asOpt[Int]
-      )
-    }
-  }
-  */
 }
 
+implicit val userFormFormat = new Reads[UserForm]{
+  def reads(js: JsValue): UserForm = {
+    UserForm(
+      id        = (js \ "id"       ).asOpt[Long],
+      name      = (js \ "name"     ).as[String],
+      companyId = (js \ "companyId").asOpt[Int]
+    )
+  }
+}
+*/
+}
 
 class JsonController @Inject()(val dbConfigProvider: DatabaseConfigProvider) extends Controller
   with HasDatabaseConfigProvider[JdbcProfile] {
