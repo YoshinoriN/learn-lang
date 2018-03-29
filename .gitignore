@@ -7,6 +7,7 @@
 *.tmp
 *.gz
 *.tar
+**/dist/*
 ~$*
 node_modules/
 Thumbs.db
