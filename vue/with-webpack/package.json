@@ -4,7 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "copy-webpack-plugin": "^4.5.1",
     "vue": "^2.5.16",
+    "vue-loader": "^14.2.2",
+    "vue-template-compiler": "^2.5.16",
     "webpack": "^4.4.1"
+  },
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
   }
 }
