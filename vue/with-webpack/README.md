@@ -15,4 +15,9 @@ yarn add --dev webpack copy-webpack-plugin webpack-cli
 yarn add vue
 yarn add --dev vue-loader vue-template-compiler
 ```
+
+### bable
+
+```sh
+yarn add --dev babel-loader babel-core babel-preset-es2016
 ```
