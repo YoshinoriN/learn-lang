@@ -1,11 +1,16 @@
-# Vue.js
+# Vue.js with Webpack
 
 ## Install
+
+### Initialize
+
+```sh
+yarn init
+```
 
 ### Webpack
 
 ```sh
-yarn init
 yarn add --dev webpack copy-webpack-plugin webpack-cli
 ```
 
