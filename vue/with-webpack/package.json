@@ -8,9 +8,11 @@
     "vue": "^2.5.16",
     "vue-loader": "^14.2.2",
     "vue-template-compiler": "^2.5.16",
-    "webpack": "^4.4.1"
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13"
   },
   "scripts": {
+    "watch": "webpack --mode development --progress --watch",
     "dev": "webpack --mode development",
     "build": "webpack --mode production"
   }

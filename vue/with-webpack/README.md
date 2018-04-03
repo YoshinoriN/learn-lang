@@ -6,7 +6,7 @@
 
 ```sh
 yarn init
-yarn add --dev webpack copy-webpack-plugin
+yarn add --dev webpack copy-webpack-plugin webpack-cli
 ```
 
 ### Vue
