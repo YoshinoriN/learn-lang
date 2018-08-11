@@ -33,6 +33,38 @@ let test3 = calcLegs 2 2 = 12
 let test3 = calcLegs 3 3 = 18
 
 (*
+  Get number of cranes by legs
+  getNumberOfCranesFromLegs: int -> int
+*)
+let getNumberOfCranesFromLegs legs = legs / 2
+(* Unit test *)
+let nctest1 = getNumberOfCranesFromLegs 2 = 1
+let nctest2 = getNumberOfCranesFromLegs 3 = 1
+let nctest2 = getNumberOfCranesFromLegs 4 = 2
+
+(*
+  Get number of turtles by legs
+  getNumberOfTurtleFromLegs: int -> int
+*)
+let getNumberOfTurtleFromLegs legs = legs / 4
+
+(* Unit test *)
+let nttest1 = getNumberOfTurtleFromLegs 4 = 1
+let nttest2 = getNumberOfTurtleFromLegs 7 = 1
+let nttest2 = getNumberOfTurtleFromLegs 8 = 2
+
+(*
+  Calc crane from number of cranes and turtles with them legs
+  calcCrane: int -> int -> int
+*)
+let calcCrane cranesAndTurtles legs = getNumberOfCranesFromLegs ((calcTurtleLegs cranesAndTurtles) - legs)
+
+(* Unit test *)
+let cstest1 = calcCrane 10 40 = 0
+let cstest2 = calcCrane 10 36 = 2
+let cstest2 = calcCrane 10 28 = 6
+
+(*
   #use "tsurukame.ml";;
 
   Result
