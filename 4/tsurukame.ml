@@ -81,5 +81,43 @@ let cstest2 = calcCrane 10 28 = 6
   val test2 : bool = true
   val test3 : bool = true
   val test3 : bool = true
+  val getNumberOfCranesFromLegs : int -> int = <fun>
+  val nctest1 : bool = true
+  val nctest2 : bool = true
+  val nctest2 : bool = true
+  val getNumberOfTurtleFromLegs : int -> int = <fun>
+  val nttest1 : bool = true
+  val nttest2 : bool = true
+  val nttest2 : bool = true
+  val calcCrane : 'a -> int -> int = <fun>
+  val cstest1 : bool = false
+  val cstest2 : bool = false
+  val cstest2 : bool = false
+  # #use "tsurukame.ml";;
+  val calcCraneLegs : int -> int = <fun>
+  val ctest1 : bool = true
+  val ctest2 : bool = true
+  val ctest3 : bool = true
+  val calcTurtleLegs : int -> int = <fun>
+  val ttest1 : bool = true
+  val ttest2 : bool = true
+  val ttest3 : bool = true
+  val calcLegs : int -> int -> int = <fun>
+  val test1 : bool = true
+  val test2 : bool = true
+  val test3 : bool = true
+  val test3 : bool = true
+  val getNumberOfCranesFromLegs : int -> int = <fun>
+  val nctest1 : bool = true
+  val nctest2 : bool = true
+  val nctest2 : bool = true
+  val getNumberOfTurtleFromLegs : int -> int = <fun>
+  val nttest1 : bool = true
+  val nttest2 : bool = true
+  val nttest2 : bool = true
+  val calcCrane : int -> int -> int = <fun>
+  val cstest1 : bool = true
+  val cstest2 : bool = true
+  val cstest2 : bool = true
 *)
 
