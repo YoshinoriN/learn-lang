@@ -19,10 +19,10 @@ object JsonController {
   case class UserForm(id: Option[Long], name: String, companyId: Option[Int])
 
   // Scalaオブジェクト(UsersRow)をJSONに変換するにはWritesを定義
-  implicit val usersRowWritesWrites = (
+  implicit val usersRowWrites = (
     (__ \ "id"       ).write[Long]   and
     (__ \ "name"     ).write[String] and
-    (__ \ "companyId").writeNullable[Int]
+    (__ \ "companyId").writeullable[Int]
     )(unlift(UsersRow.unapply))
 
   //JSONをScalaオブジェクト(UserForm)に変換するためのReadsを定義する
