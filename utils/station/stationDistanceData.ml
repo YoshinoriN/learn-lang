@@ -1,6 +1,6 @@
 #use "./stationDistanceType.ml";;
 
-let stationDistances  =  [
+let stationDistances = [
   {start = "yoyogiuehara"; finish = "yoyogikouen"; transit = "chiyodaline"; distance = 1.0; time = 2};
   {start = "yoyogikouen"; finish = "meijijinguumae"; transit = "chiyodaline"; distance = 1.2; time = 2};
   {start = "meijijinguumae"; finish = "omotesandou"; transit = "chiyodaline"; distance = 0.9; time = 2};
