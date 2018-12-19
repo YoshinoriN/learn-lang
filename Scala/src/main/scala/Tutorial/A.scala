@@ -5,3 +5,9 @@ object Main extends App {
   println((firstLine + secondLine.sum).toString + ' ' + io.StdIn.readLine())
 
 }
+
+/*
+1
+2 3
+hoge
+ */
