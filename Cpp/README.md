@@ -15,5 +15,5 @@ g++ <filename> -o <filename>
 ## Execute
 
 ```sh
-1_A.cpp
+./1_A.cpp
 ```
