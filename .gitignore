@@ -13,6 +13,12 @@ node_modules/
 Thumbs.db
 .DS_Store
 *.exe
+*.dll
+*.pdb
+*.deps.json
+*.runtimeconfig.dev.json
+*.runtimeconfig.json
+CSharp/obj
 
 # Scala
 dist/*
