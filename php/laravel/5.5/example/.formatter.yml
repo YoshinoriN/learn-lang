@@ -1,0 +1,16 @@
+use-sort:
+    group:
+        - _main
+        - Mmoreram
+    group-type: each
+    sort-type: alph
+    sort-direction: asc
+
+strict: ~
+header: |
+    /*
+     * Test
+     *
+     * Copyright (c) 2017 YoshinoriN
+     *
+     */
