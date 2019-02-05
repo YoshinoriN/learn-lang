@@ -1,0 +1,44 @@
+# IntelliJ specific
+.idea/
+.idea_modules/
+
+# General
+*.log
+*.tmp
+*.gz
+*.tar
+~$*
+node_modules/
+Thumbs.db
+.DS_Store
+
+# Front end
+**/node_modules/*
+**/dist/*
+
+*.annot
+*.cmo
+*.cma
+*.cmi
+*.a
+*.o
+*.cmx
+*.cmxs
+*.cmxa
+
+# ocamlbuild working directory
+_build/
+
+# ocamlbuild targets
+*.byte
+*.native
+
+# oasis generated files
+setup.data
+setup.log
+
+# Merlin configuring file for Vim and Emacs
+.merlin
+
+# Ignore files
+__*.ml
