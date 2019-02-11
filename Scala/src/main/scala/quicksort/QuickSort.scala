@@ -6,7 +6,7 @@ object QuickSort extends App {
 
   val random = new Random()
 
-  println(quicksort(Seq(3,5,6,1,9,5,15,2,11,8)))
+  println(quicksort(Seq(1,5,8,4,16,2,10)))
 
   def quicksort(nums: Seq[Int]): Seq[Int] = {
 
