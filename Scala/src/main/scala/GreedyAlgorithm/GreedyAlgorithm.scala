@@ -22,12 +22,17 @@ object GreedyAlgorithm extends App {
   println(result)
 
   def findNextLesson(currentLesson: Lesson, lessons: List[Lesson], answer: List[Lesson]): List[Lesson] = {
-    lessons.filter(l => l.start == currentLesson.end).headOption match {
-      case Some(x) => { x
-        findNextLesson(x, lessons, answer :+ x)
-      }
-      case _ => answer
+    val maybeNextLesson = lessons.filter(_.start.compareTo(currentLesson.end) >= 0)
+    if (maybeNextLesson.isEmpty) {
+      answer
+    } else  {
+      val nextLesson = maybeNextLesson.minBy(_.end)
+      findNextLesson(nextLesson, lessons, answer :+ nextLesson)
     }
   }
 
 }
+
+/*
+List(Lesson(Art,09:00,10:00), Lesson(Mathematics,10:00,11:00), Lesson(Music,11:00,12:00))
+ */
