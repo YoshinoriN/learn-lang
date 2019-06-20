@@ -1,0 +1,31 @@
+# IDE specific
+.idea/
+.idea_modules/
+.vscode/
+
+# General
+*.log
+*.tmp
+*.gz
+*.tar
+~$*
+node_modules/
+Thumbs.db
+.DS_Store
+*.exe
+*.dll
+*.pdb
+
+# Scala
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+
+# Front end
+**/node_modules/*
+**/dist/*
+.next
+out
