@@ -1,6 +1,6 @@
 # My learning repo
 
-* [Algorithm](./algorithm)
+* [Algorithm & Data structure](./algorithm)
     * [C#](./algorithm/CSharp)
     * [JavaScript](./algorithm/JavaScript)
     * [Scala](./algorithm/Scala)
