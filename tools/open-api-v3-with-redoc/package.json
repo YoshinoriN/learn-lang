@@ -1,0 +1,14 @@
+{
+  "name": "openapi-v3-with-redoc",
+  "version": "1.0.0",
+  "description": "Open API Example with Redoc",
+  "main": "index.js",
+  "scripts": {
+    "build:v1": "./node_modules/.bin/redoc-cli bundle ./docs/v1/openapi.yml -o ./dist/index.html"
+  },
+  "author": "YoshinoriN",
+  "devDependencies": {
+    "redoc-cli": "^0.8.3"
+  },
+  "dependencies": {}
+}
