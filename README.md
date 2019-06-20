@@ -14,7 +14,7 @@
         * [JavaScript](./contest/AtCoder/JavaScript)
         * [Scala](./contest/AtCoder/Scala)
 * [Front End](./front-end)
-* [Languages](./languages)
+* [Languages & Framework](./languages)
     * [C](./languages/c)
     * [OCaml](./languages/ocaml)
     * [php](./languages/php)
