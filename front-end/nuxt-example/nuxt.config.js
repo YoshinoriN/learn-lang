@@ -46,10 +46,16 @@ export default {
   */
   modules: [
     '@nuxtjs/vuetify',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/markdownit'
   ],
   axios: {
     // proxyHeaders: false
+  },
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true
   },
   /*
   ** vuetify module configuration

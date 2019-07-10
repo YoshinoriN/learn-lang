@@ -75,6 +75,17 @@
             Continue
           </v-btn>
         </v-card-actions>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn
+            color="primary"
+            flat
+            nuxt
+            to="/image"
+          >
+            Continue
+          </v-btn>
+        </v-card-actions>
       </v-card>
     </v-flex>
   </v-layout>

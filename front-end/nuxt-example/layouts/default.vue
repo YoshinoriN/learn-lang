@@ -105,7 +105,27 @@ export default {
           icon: 'bubble_chart',
           title: 'Inspire',
           to: '/inspire'
-        }
+        },
+        {
+          icon: 'bubble_chart',
+          title: 'Image',
+          to: '/image'
+        },
+        {
+          icon: 'bubble_chart',
+          title: 'MarkdownIt',
+          to: '/markdownit'
+        },
+        {
+          icon: 'bubble_chart',
+          title: 'Posts',
+          to: '/posts'
+        },
+        {
+          icon: 'bubble_chart',
+          title: 'Profile',
+          to: '/profile'
+        },
       ],
       miniVariant: false,
       right: true,
