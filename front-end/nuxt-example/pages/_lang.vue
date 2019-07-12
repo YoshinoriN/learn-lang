@@ -7,9 +7,6 @@
   import ja from './ja/hello.md'
 
   export default {
-    data () {
-      return { lang: 'en' }
-    },
     asyncData (context) {
       return { lang: context.lang }
     },
