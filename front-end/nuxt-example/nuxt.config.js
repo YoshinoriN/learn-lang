@@ -47,7 +47,13 @@ export default {
   modules: [
     '@nuxtjs/vuetify',
     '@nuxtjs/axios',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    ['nuxt-i18n',
+      {
+        strategy: 'prefix_except_default',
+        defaultLocale: 'en'
+      }
+    ]
   ],
   axios: {
     // proxyHeaders: false
@@ -81,5 +87,22 @@ export default {
     */
     extend(config, ctx) {
     }
-  }
+  },
+  i18n: {
+    locales: ['en', 'ja'],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: {
+        en: {
+          welcome: 'Welcome'
+        },
+        ja: {
+          welcome: 'こんにちは世界'
+        }
+      }
+    }
+  },
+  differentDomains: false,
+  seo: false,
 }
