@@ -23,7 +23,7 @@ export default {
     ]
   },
   router: {
-    middleware: 'stats'
+    middleware: ['lang','context','routes']
   },
   /*
   ** Customize the progress-bar color
@@ -50,6 +50,7 @@ export default {
     '@nuxtjs/markdownit',
     ['nuxt-i18n',
       {
+        detectBrowserLanguage: false,
         strategy: 'prefix_except_default',
         defaultLocale: 'en'
       }
