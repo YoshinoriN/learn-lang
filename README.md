@@ -1,5 +1,7 @@
 # My learning repo
 
+* Infrastructure
+    * [Linux](./infrastructure/linux)
 * [Algorithm & Data structure](./algorithm)
     * [C#](./algorithm/CSharp)
     * [JavaScript](./algorithm/JavaScript)
