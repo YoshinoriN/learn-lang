@@ -2,6 +2,8 @@
 
 * Infrastructure
     * [Linux](./infrastructure/linux)
+    * [Auth](./infrastructure/auth)
+        * [JWT decode nodejs](./infrastructure/auth/jwt-decode-nodejs)
 * [Algorithm & Data structure](./algorithm)
     * [C#](./algorithm/CSharp)
     * [JavaScript](./algorithm/JavaScript)
