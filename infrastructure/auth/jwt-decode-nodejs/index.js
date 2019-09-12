@@ -10,7 +10,11 @@ fetch(jwkUrl)
 .then(json => {
   const pem = jwkToPem(json.keys[1]);
   verify(token, pem, function(err, decodedToken) {
-    console.log(decodedToken)
+    if (!err == null && !err == undefined) {
+      console.log(err)
+    } else {
+      console.log(decodedToken)
+    }
   });
 })
 .catch(error => {
