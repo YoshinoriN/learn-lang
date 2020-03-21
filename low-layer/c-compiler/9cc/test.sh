@@ -1,12 +1,11 @@
 #!/bin/bash
 
-try() {
+assert() {
   expected="$1"
   input="$2"
 
-  gcc -o 9cc 9cc.c
   ./9cc "$input" > tmp.s
-  gcc -o tmp tmp.s
+  gcc -static -o tmp tmp.s
   ./tmp
   actual="$?"
 
@@ -16,14 +15,15 @@ try() {
     echo "$input => $expected expected, but got $actual"
     exit 1
   fi
-
-  rm -f 9cc tmp.s tmp
 }
 
-try 0 0
-try 42 42
-try 21 "5+20-4"
-try 41 " 12 + 34 - 5 "
+assert 0 0
+assert 42 42
+assert 21 "5+20-4"
+assert 41 " 12 + 34 - 5 "
+assert 47 '5+6*7'
+assert 15 '5*(9-6)'
+assert 4 '(3+5)/2'
 
 echo OK
 
