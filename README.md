@@ -24,6 +24,7 @@
     * [C](./languages/c)
     * [OCaml](./languages/ocaml)
     * [php](./languages/php)
+    * [python](./languages/python)
     * [Ruby](./languages/ruby)
     * [Scala](./languages/scala)
     * [TypeScript](./languages/typescript)
