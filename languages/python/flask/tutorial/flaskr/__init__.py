@@ -20,6 +20,14 @@ def create_app(test_config=None):
   except OSError:
     pass
 
+  from . import db
+  db.init_app(app)
+
+  from . import auth
+  app.register_blueprint(auth.bp)
+
+  return app
+
   @app.route('/hello')
   def hello():
     return 'Hello, World!'
