@@ -4,6 +4,7 @@
 |---|---|---|
 |Data Stracture|[Stack](https://github.com/YoshinoriN/monooki/blob/master/algorithm/JavaScript/Stack/stack1.js)|JS|
 |Data Stracture|[Stack](https://github.com/YoshinoriN/monooki/blob/master/algorithm/JavaScript/Stack/stack2.js)|JS|
+|Data Stracture|[Circular Queue](https://github.com/YoshinoriN/monooki/blob/master/algorithm/JavaScript/CircularQueue/queue.js)|JS|
 |Data Stracture|[ListLinkedList](https://github.com/YoshinoriN/monooki/blob/master/algorithm/CSharp/ListLinkedList/Program.cs)|C#|
 |Algorithm|[BinarySearch](https://github.com/YoshinoriN/monooki/blob/master/algorithm/JavaScript/BinarySearch/index.js)|JavaScript|
 |Algorithm|[BreadthFirstSearch](https://github.com/YoshinoriN/monooki/blob/master/algorithm/Scala/src/main/scala/BreadthFirstSearch/BreadthFirstSearch.scala)|Scala|
