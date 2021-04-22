@@ -1,0 +1,33 @@
+type Query {
+  totalPhotps: Int!
+  allPhotos: [Photo!]!
+  totalUsers: Int!
+  allUsers: [User!]!
+}
+
+shcema {
+  query: {
+    totalPhotps
+    allPhotos {
+      name
+      url
+    }
+  }
+}
+
+type User {
+  githubLogin: ID!
+  name: String
+  avator: String
+  postedPhotos: [Photo!]!
+  inPhotos: [Photo!]!
+}
+
+
+type Photo {
+  id: ID!
+  name: String!
+  url: String!
+  description: String
+  taggedUsers: [User!]!
+}
