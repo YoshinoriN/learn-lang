@@ -1,0 +1,34 @@
+union AgendaItem = StudyGroup | Workout
+
+type StudyGroup {
+  name: String!
+  subject: String
+  students: [User!]!
+}
+
+type Workout {
+  name: String!
+  resp: Int
+}
+
+type Query {
+  agenda: [AgendaItem!]!
+}
+
+"""
+agenda を unionで書かなかった場合
+
+query schedule {
+  agenda {
+    ...on Workout {
+      name
+      resp
+    }
+    ...on StudyGroup {
+      name
+      subject
+      students
+    }
+  }
+}
+"""

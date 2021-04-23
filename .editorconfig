@@ -31,3 +31,6 @@ indent_size = 2
 [*.py]
 indent_style = tab
 indent_size = 4
+
+[*.graphql]
+indent_size = 2

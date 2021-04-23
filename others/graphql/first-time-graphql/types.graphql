@@ -21,8 +21,8 @@ type User {
   avator: String
   postedPhotos: [Photo!]!
   inPhotos: [Photo!]!
+  friends: [Friendship!]!
 }
-
 
 type Photo {
   id: ID!
@@ -30,4 +30,10 @@ type Photo {
   url: String!
   description: String
   taggedUsers: [User!]!
+}
+
+type Friendship {
+  friends: [User!]!
+  howLong: Int!
+  whereWeMet: Location
 }
