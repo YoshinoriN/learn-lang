@@ -1,0 +1,29 @@
+type Photo {
+  id: ID!
+  name: String!
+  url: String!
+  description: String
+}
+
+type User {
+  githubLogin: ID!
+  name: String
+  avator: String
+  postedPhotos: [Photo!]!
+  inPhotos: [Photo!]!
+}
+
+"""
+newPhoto, newUserを購読している全てのユーザに通知がpushされる
+特定の条件でフィルターすることも可能
+"""
+type Subscription {
+  newPhoto: Photo!
+  newUser: User!
+}
+
+shcema {
+  query: Query
+  mutation: Mutation
+  Subscription: Subscription
+}

@@ -1,0 +1,30 @@
+type Photo {
+  id: ID!
+  name: String!
+  url: String!
+  description: String
+}
+
+type Mutation {
+  postPhoto(
+    name: String!
+    description: String
+    category: PhotoCategory=PORTRAIT
+  ): Photo!
+}
+
+shcema {
+  query: Query
+  mutation: Mutation
+}
+
+mutation {
+  postPhoto(name: "Sendint the Palisades") {
+    id
+    url
+    created
+    postedBy {
+      name
+    }
+  }
+}

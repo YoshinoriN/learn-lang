@@ -1,0 +1,32 @@
+enum SortDirection {
+  ASC
+  DESC
+}
+
+type Photo {
+  id: ID!
+  name: String!
+  url: String!
+  description: String
+}
+
+enum SortablePhotoField {
+  name
+  description
+  category
+  created
+}
+
+Query {
+  allPhotos(
+    sort: SortDirection = DESC
+    sortBy: SortablePhotoField = created
+  ): [Photo!]!
+}
+
+query {
+  allPhotos(sortBy: name) {
+    name
+    url
+  }
+}

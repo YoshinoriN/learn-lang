@@ -1,0 +1,38 @@
+type Photo {
+  id: ID!
+  name: String!
+  url: String!
+  description: String
+}
+
+"""
+引数でのみ使用可能
+"""
+input PostPhotoInput {
+  name: String!
+  description: String
+  category: PhotoCategory=PORTRAIT
+}
+
+type Mutation {
+  postPhoto(input: PostPhotoInput): Photo!
+}
+
+mutation newPhoto($input: PostPhotoInput!) {
+  postPhoto(input: $input) {
+    id
+    url
+    created
+  }
+}
+
+"""
+下記のようなJSONにする必要がある
+{
+  "input": {
+    "name": "hoge",
+    "description": "hoge hoge fugaga",
+    "category": "LANDSCAPE"
+  }
+}
+"""
