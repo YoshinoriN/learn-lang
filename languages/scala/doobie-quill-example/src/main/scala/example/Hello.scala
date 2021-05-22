@@ -26,8 +26,15 @@ object Hello extends App {
   import ctx._
 
   val q1 = quote { query[Country].filter(_.code == "GBR") }
-  val maybeCountry = run(q1).transact(transactor)
-  print(maybeCountry.unsafeRunSync())
-  //print(.unsafeRunSync())
+  val r1 = run(q1)
+  val t1 = r1.transact(transactor)
+  t1.unsafeRunSync()
+
+  val c = Country("JPN", "Japan", 120000000)
+  val q2 = quote { query[Country].insert(lift(c)) }
+  val r2 = run(q2)
+  val t2 = r2.transact(transactor)
+  val x = t2.unsafeRunSync()
+  printf(x.toString)
 
 }
