@@ -26,6 +26,8 @@ object Hello extends App {
   import ctx._
 
   val q1 = quote { query[Country].filter(_.code == "GBR") }
-  run(q1)
+  val maybeCountry = run(q1).transact(transactor)
+  print(maybeCountry.unsafeRunSync())
+  //print(.unsafeRunSync())
 
 }
